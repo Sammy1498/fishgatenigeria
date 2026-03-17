@@ -1,0 +1,580 @@
+/* ===================================================
+   ABOUT PAGE — THE FISHGATE NIGERIA
+   Extends style.css with about-page-specific styles
+   =================================================== */
+
+/* --- ABOUT HERO --- */
+.about-hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--color-bg);
+}
+
+.about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 55% at center,
+            #010b19 35%,
+            rgba(1, 11, 25, 0.9) 55%,
+            rgba(1, 11, 25, 0.3) 80%,
+            rgba(1, 11, 25, 0) 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 720px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 0 24px;
+}
+
+.about-hero-tag {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent-yellow);
+    display: inline-block;
+    padding: 8px 24px;
+    border: 1px solid rgba(255, 234, 0, 0.3);
+    border-radius: 50px;
+}
+
+.about-hero-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 1.15;
+    color: var(--color-white);
+}
+
+.about-hero-desc {
+    font-family: var(--font-body);
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--color-white);
+    opacity: 0.85;
+    max-width: 600px;
+}
+
+/* Floating polaroids on about hero */
+.about-float {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.af-1 {
+    top: 8%;
+    left: 5%;
+    transform: rotate(-12deg);
+}
+
+.af-2 {
+    top: 10%;
+    right: 6%;
+    transform: rotate(8deg);
+}
+
+.af-3 {
+    bottom: 12%;
+    left: 8%;
+    transform: rotate(6deg);
+}
+
+.af-4 {
+    bottom: 8%;
+    right: 5%;
+    transform: rotate(-9deg);
+}
+
+.af-1 .polaroid {
+    width: 200px;
+}
+
+.af-2 .polaroid {
+    width: 180px;
+}
+
+.af-3 .polaroid {
+    width: 190px;
+}
+
+.af-4 .polaroid {
+    width: 175px;
+}
+
+
+/* --- STORY SECTION --- */
+.about-story {
+    background: var(--color-bg);
+    position: relative;
+}
+
+.story-title {
+    font-size: 48px;
+}
+
+.story-desc {
+    font-size: 20px;
+    opacity: 0.9;
+    margin-bottom: 16px;
+}
+
+/* Timeline */
+.story-timeline {
+    position: relative;
+    padding-left: 48px;
+}
+
+.story-timeline::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom,
+            rgba(255, 234, 0, 0.8),
+            #1a4ad8,
+            rgba(255, 0, 0, 0.8));
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -40px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    background: var(--color-accent-yellow);
+    border-radius: 50%;
+    border: 3px solid var(--color-bg);
+    box-shadow: 0 0 0 2px rgba(255, 234, 0, 0.4);
+}
+
+.timeline-year {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-accent-yellow);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.timeline-content h4 {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.timeline-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+
+/* --- MISSION & VISION --- */
+.about-mission {
+    display: flex;
+    min-height: 700px;
+}
+
+.mission-card {
+    flex: 1;
+    padding: 64px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+}
+
+.mission-card-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.mission-label {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    display: block;
+    margin-bottom: 24px;
+}
+
+.mission-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.mission-desc {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+
+/* --- TEAM --- */
+.about-team {
+    background: var(--color-bg);
+}
+
+.team-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 80px;
+}
+
+.team-title {
+    font-size: 56px;
+    margin-bottom: 24px;
+}
+
+.team-desc {
+    font-size: 20px;
+    opacity: 0.85;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.team-card {
+    text-align: center;
+}
+
+.team-photo {
+    margin-bottom: 24px;
+    transition: transform 0.4s var(--transition-mechanical);
+}
+
+.team-card:hover .team-photo {
+    transform: rotate(-3deg) scale(1.03);
+}
+
+.team-name {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.team-role {
+    font-family: var(--font-small);
+    font-size: 14px;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* --- VALUES --- */
+.about-values {
+    background: var(--color-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.values-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.values-title {
+    font-size: 56px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 64px 80px;
+}
+
+.value-item {
+    position: relative;
+    padding-left: 0;
+}
+
+.value-number {
+    font-family: var(--font-heading);
+    font-size: 72px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.06);
+    margin-bottom: 8px;
+    transition: color 0.5s var(--transition-mechanical);
+}
+
+.value-item:hover .value-number {
+    color: rgba(255, 234, 0, 0.15);
+}
+
+.value-name {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 28px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.value-desc {
+    font-size: 17px;
+    line-height: 1.6;
+    opacity: 0.75;
+    max-width: 480px;
+}
+
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .about-hero-title {
+        font-size: 36px;
+    }
+
+    .about-hero-desc {
+        font-size: 17px;
+    }
+
+    .about-float {
+        display: none;
+    }
+
+    .about-mission {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .mission-card {
+        padding: 48px 24px;
+    }
+
+    .mission-title {
+        font-size: 28px;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    .team-title,
+    .values-title {
+        font-size: 36px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .story-title {
+        font-size: 36px;
+    }
+}
+
+/* --- MOBILE — 768px --- */
+@media (max-width: 768px) {
+
+    /* About Hero */
+    .about-hero {
+        min-height: 85vh;
+    }
+
+    .about-hero-content {
+        max-width: 100%;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .about-hero-tag {
+        font-size: 11px;
+        padding: 8px 20px;
+    }
+
+    .about-hero-title {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    .about-hero-desc {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .about-float {
+        display: none;
+    }
+
+    /* Story */
+    .about-story .section-padding {
+        padding: 40px 20px;
+    }
+
+    .story-title {
+        font-size: 28px;
+        margin-bottom: 16px;
+    }
+
+    .story-desc {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .story-timeline {
+        padding-left: 40px;
+        margin-top: 16px;
+    }
+
+    .timeline-item {
+        margin-bottom: 36px;
+    }
+
+    .timeline-content h4 {
+        font-size: 18px;
+    }
+
+    .timeline-content p {
+        font-size: 15px;
+    }
+
+    /* Mission Cards */
+    .about-mission {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .mission-card {
+        padding: 32px 20px;
+        min-height: auto;
+    }
+
+    .mission-label {
+        margin-bottom: 16px;
+    }
+
+    .mission-title {
+        font-size: 26px;
+    }
+
+    .mission-desc {
+        font-size: 16px;
+    }
+
+    /* Team */
+    .about-team .section-padding {
+        padding: 40px 20px;
+    }
+
+    .team-header {
+        margin-bottom: 32px;
+    }
+
+    .team-title {
+        font-size: 30px;
+    }
+
+    .team-desc {
+        font-size: 17px;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    .team-name {
+        font-size: 16px;
+    }
+
+    .team-role {
+        font-size: 12px;
+    }
+
+    /* Values */
+    .about-values .section-padding {
+        padding: 40px 20px;
+    }
+
+    .values-header {
+        margin-bottom: 32px;
+    }
+
+    .values-title {
+        font-size: 30px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .value-number {
+        font-size: 56px;
+    }
+
+    .value-name {
+        font-size: 24px;
+    }
+
+    .value-desc {
+        font-size: 16px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .about-mission {
+        min-height: auto;
+    }
+
+    .values-grid {
+        gap: 32px;
+    }
+
+    .value-number {
+        font-size: 48px;
+    }
+}

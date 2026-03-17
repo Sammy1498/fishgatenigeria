@@ -1,0 +1,1076 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&display=swap');
+
+:root {
+    --color-bg: #010b19;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-accent-yellow: rgba(255, 234, 0, 0.8);
+    --color-accent-red: rgba(255, 0, 0, 0.8);
+    --color-accent-blue: #1a4ad8;
+    --color-navy-deep: #2c3759;
+    --color-header-bg: #1f2937;
+    --color-header-border: rgba(255, 255, 255, 0.1);
+
+    --font-heading: 'DM Serif Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-ui: 'Space Grotesk', sans-serif;
+    --font-small: 'Roboto', sans-serif;
+
+    --container-max: 1440px;
+    --section-pad: 112px 64px;
+    --transition-mechanical: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- GLOBAL RESET & BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fix left shift — wrap the whole page */
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+img,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+/* --- LAYOUT UTILITIES --- */
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.section-padding {
+    padding: var(--section-pad);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- HEADER --- */
+.header {
+    background: #010b19;
+    border-bottom: 1px solid var(--color-header-border);
+    padding: 16px 24px 17px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-img {
+    height: 25.776px;
+    width: 60px;
+}
+
+.logo-text {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.nav {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-link {
+    font-family: var(--font-ui);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    transition: color 0.3s var(--transition-mechanical);
+}
+
+.nav-link:hover {
+    color: var(--color-accent-yellow);
+}
+
+.menu-trigger {
+    background: var(--color-white);
+    color: var(--color-black);
+    padding: 8px 16px;
+    border-radius: 2px;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: background-color 0.3s var(--transition-mechanical);
+}
+
+.menu-trigger:hover {
+    background: var(--color-accent-yellow);
+}
+
+/* Hidden on desktop — only visible inside mobile drawer */
+.nav-close {
+    display: none;
+}
+
+main {
+    overflow-x: hidden;
+}
+
+/* --- HERO --- */
+.hero {
+    position: relative;
+    width: 100%;
+    max-width: 1416px;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    /* clips bleeding polaroids — key fix */
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+
+/* Hero fades into the precision section — no hard edge */
+.hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background: linear-gradient(to bottom,
+            transparent,
+            var(--color-bg) 100%);
+    z-index: 6;
+    pointer-events: none;
+}
+
+/* Dark radial overlay protects center text */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 45% 50% at center,
+            #010b19 40%,
+            rgba(1, 11, 25, 0.95) 60%,
+            rgba(1, 11, 25, 0.4) 80%,
+            rgba(1, 11, 25, 0) 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 560px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.hero-title {
+    font-size: 56px;
+    line-height: 1.2;
+    color: var(--color-white);
+}
+
+.hero-desc {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--color-white);
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.hero-btn {
+    background: var(--color-white);
+    color: var(--color-bg);
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 20px;
+    transition: all 0.3s var(--transition-mechanical);
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.hero-btn--outline {
+    background: transparent;
+    border: 1px solid #fff;
+    color: var(--color-white);
+}
+
+/* --- POLAROID FLOATS --- */
+.hero-float {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-float .polaroid {
+    pointer-events: all;
+}
+
+/* Push images toward edges — no negative values that cause overflow */
+/* Top polaroids — pushed wide and high, feel distant */
+.img-1 {
+    top: 2%;
+    left: 1%;
+    transform: rotate(-8deg) scale(0.85);
+}
+
+.img-2 {
+    top: 0%;
+    left: 20%;
+    transform: rotate(4deg) scale(0.9);
+}
+
+.img-3 {
+    top: 0%;
+    right: 18%;
+    transform: rotate(-3deg) scale(0.9);
+}
+
+.img-4 {
+    top: 2%;
+    right: 1%;
+    transform: rotate(6deg) scale(0.85);
+}
+
+/* Bottom polaroids — pulled inward and larger, feel closer, lead eye down */
+.img-5 {
+    bottom: -60px;
+    left: 8%;
+    transform: rotate(5deg) scale(1.1);
+}
+
+.img-6 {
+    bottom: -60px;
+    left: 28%;
+    transform: rotate(-4deg) scale(1.15);
+}
+
+.img-7 {
+    bottom: -60px;
+    left: 42%;
+    transform: rotate(3deg) scale(1.15);
+}
+
+.img-8 {
+    bottom: -60px;
+    right: 8%;
+    transform: rotate(-5deg) scale(1.1);
+}
+
+/* Polaroid frame */
+.polaroid {
+    background: #fff;
+    padding: 16px 16px 70px 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.polaroid-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.polaroid-img span {
+    color: #444;
+    font-size: 11px;
+    font-family: monospace;
+}
+
+/* When real images are added */
+.polaroid-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Individual polaroid sizes */
+.img-1 .polaroid {
+    width: 250px;
+}
+
+.img-2 .polaroid {
+    width: 220px;
+}
+
+.img-3 .polaroid {
+    width: 230px;
+}
+
+.img-4 .polaroid {
+    width: 235px;
+}
+
+.img-5 .polaroid {
+    width: 225px;
+}
+
+.img-6 .polaroid {
+    width: 240px;
+}
+
+.img-7 .polaroid {
+    width: 230px;
+}
+
+.img-8 .polaroid {
+    width: 220px;
+}
+
+/* --- PRECISION INTRO --- */
+.precision-intro {
+    min-height: 100vh;
+    background: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 20;
+    margin-top: 0;
+    padding-top: 0;
+    will-change: transform, opacity;
+}
+
+
+.precision-content {
+    max-width: 812px;
+}
+
+.precision-title {
+    font-size: 56px;
+    margin-bottom: 24px;
+}
+
+.precision-desc {
+    font-size: 24px;
+    max-width: 736px;
+    margin: 0 auto;
+}
+
+.precision-float {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    /* dimmed so text stays readable */
+}
+
+.precision-content {
+    position: relative;
+    z-index: 2;
+    /* text sits above the background polaroids */
+    max-width: 812px;
+}
+
+/* Position them loosely around the edges */
+.pf-1 {
+    top: 5%;
+    left: 3%;
+    transform: rotate(-10deg);
+}
+
+.pf-2 {
+    top: 8%;
+    right: 5%;
+    transform: rotate(7deg);
+}
+
+.pf-3 {
+    bottom: 8%;
+    left: 6%;
+    transform: rotate(6deg);
+}
+
+.pf-4 {
+    bottom: 5%;
+    right: 3%;
+    transform: rotate(-8deg);
+}
+
+.pf-1 .polaroid {
+    width: 220px;
+}
+
+.pf-2 .polaroid {
+    width: 200px;
+}
+
+.pf-3 .polaroid {
+    width: 210px;
+}
+
+.pf-4 .polaroid {
+    width: 195px;
+}
+
+/* --- FEATURE CARDS --- */
+.features-grid {
+    display: flex;
+    height: 820px;
+    position: relative;
+    z-index: 10;
+    background: var(--color-bg);
+    /* solid bg so it fully covers precision-intro as it scrolls over */
+}
+
+.feature-card {
+    flex: 1;
+    padding: 49px 47px;
+    display: flex;
+    flex-direction: column;
+    gap: 31px;
+}
+
+.feature-icon {
+    width: 250px;
+    height: 250px;
+}
+
+.feature-title {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1;
+}
+
+.feature-desc {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+/* Target the gsap pin wrapper directly */
+.pin-spacer:has(.precision-intro) {
+    z-index: 1 !important;
+}
+
+
+/* --- SERVICES HORIZONTAL --- */
+.services-module {
+    width: 100%;
+    height: 100vh;
+    overflow: visible;
+    position: relative;
+    background: var(--color-bg);
+}
+
+.services-horizontal-track {
+    display: flex;
+    width: 400vw;
+    height: 100%;
+    will-change: transform;
+}
+
+.layout-467 {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+}
+
+.col-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sub-title {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.sub-desc {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 32px;
+}
+
+.sub-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.col-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.list-item {
+    margin-bottom: 32px;
+}
+
+.list-item h4 {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.list-item p {
+    font-size: 16px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* --- ABOUT VIDEO --- */
+.about-video-section {
+    padding: 112px 64px 49px;
+}
+
+.video-player {
+    flex: 1;
+    height: 640px;
+    position: relative;
+    background: #000;
+}
+
+.video-player video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    pointer-events: none;
+}
+
+/* --- CTA --- */
+.cta-section {
+    padding: 112px 0;
+    background: var(--color-white);
+    color: var(--color-black);
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+/* --- FOOTER --- */
+.footer {
+    background: var(--color-bg);
+    padding: 80px 64px 49px;
+}
+
+.footer-massive-logo {
+    font-size: 128px;
+    text-align: center;
+    padding: 40px 0;
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: var(--font-heading);
+}
+
+.footer-bottom {
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-legal a {
+    text-decoration: underline;
+    opacity: 0.7;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .section-padding {
+        padding: 64px 24px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .col-list {
+        padding-top: 0 !important;
+    }
+
+    .features-grid {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 32px;
+    }
+}
+
+/* ==============================================
+   MOBILE — 768px and below
+   ============================================== */
+@media (max-width: 768px) {
+
+    /* --- FLOATING BOTTOM NAVBAR --- */
+    .nav {
+        position: fixed;
+        bottom: 88px;
+        /* Sits above the trigger */
+        left: 50%;
+        transform: translateX(-50%) translateY(20px) scale(0.95);
+        width: calc(100% - 48px);
+        max-width: 320px;
+        background: rgba(1, 11, 25, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 24px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        z-index: 9999;
+        opacity: 0;
+        pointer-events: none;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transition: all 0.4s var(--transition-mechanical);
+    }
+
+    .nav.is-open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    .nav-link {
+        font-size: 18px;
+        letter-spacing: 1.5px;
+        padding: 12px 24px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border-radius: 8px;
+        transition: background 0.3s ease;
+    }
+
+    .nav-link:active {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-link--active {
+        color: var(--color-accent-yellow);
+        background: rgba(255, 234, 0, 0.05);
+    }
+
+    /* Floating Pill Trigger */
+    .menu-trigger {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(100% - 48px);
+        max-width: 380px;
+        padding: 0 32px;
+        min-height: 54px;
+        background: rgba(1, 11, 25, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: var(--color-white);
+        border-radius: 50px;
+        font-family: var(--font-ui);
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(12px);
+        z-index: 10000;
+        transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    .menu-trigger:active {
+        transform: translateX(-50%) scale(0.95);
+    }
+
+    /* Hide the standalone close button since the pill turns into 'Close' via JS */
+    .nav-close {
+        display: none !important;
+    }
+
+    /* --- HEADER --- */
+    .header {
+        padding: 12px 16px;
+    }
+
+    .logo-text {
+        font-size: 16px;
+    }
+
+    .logo-img {
+        height: 22px;
+        width: auto;
+    }
+
+    /* --- HERO --- */
+    .hero {
+        min-height: 85vh;
+        padding: 0 20px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        gap: 20px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    .hero-desc {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        margin-top: 16px;
+    }
+
+    .hero-btn {
+        font-size: 16px;
+        padding: 14px 28px;
+        min-height: 48px;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Hide polaroids on mobile — they overflow and clutter */
+    .hero-float {
+        display: none;
+    }
+
+    .hero::after {
+        background: rgba(1, 11, 25, 0.85);
+    }
+
+    /* --- PRECISION INTRO --- */
+    .precision-intro {
+        min-height: 70vh;
+        padding: 0 20px;
+    }
+
+    .precision-title {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .precision-desc {
+        font-size: 18px;
+    }
+
+    .precision-float {
+        display: none;
+    }
+
+    /* --- FEATURE CARDS --- */
+    .features-grid {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .feature-card {
+        padding: 40px 24px;
+        gap: 20px;
+    }
+
+    .feature-icon {
+        width: 160px;
+        height: 160px;
+    }
+
+    .feature-title {
+        font-size: 28px;
+    }
+
+    .feature-desc {
+        font-size: 17px;
+    }
+
+    /* --- SERVICES HORIZONTAL SCROLL --- */
+    .services-module {
+        height: auto;
+        overflow: visible;
+    }
+
+    .services-horizontal-track {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .layout-467 {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+    }
+
+    .layout-467 .container {
+        padding: 40px 20px;
+    }
+
+    .layout-467 .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .sub-title {
+        font-size: 30px;
+        margin-bottom: 16px;
+    }
+
+    .sub-desc {
+        font-size: 17px;
+        margin-bottom: 24px;
+    }
+
+    .sub-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .sub-actions .hero-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .col-list {
+        padding-top: 0 !important;
+    }
+
+    .list-item h4 {
+        font-size: 18px;
+    }
+
+    .list-item p {
+        font-size: 15px;
+    }
+
+    /* --- ABOUT VIDEO --- */
+    .about-video-section {
+        padding: 40px 20px 24px;
+    }
+
+    .about-video-section .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .video-player {
+        height: 240px;
+    }
+
+    /* --- CTA --- */
+    .cta-section {
+        padding: 48px 20px;
+    }
+
+    .cta-title {
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+
+    .cta-section .sub-desc {
+        font-size: 16px;
+        margin-bottom: 40px !important;
+    }
+
+    .cta-actions {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .cta-actions .hero-btn {
+        width: 100%;
+        max-width: 320px;
+        text-align: center;
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+        padding: 32px 20px 24px;
+    }
+
+    .footer-top {
+        flex-direction: column !important;
+        gap: 32px !important;
+        align-items: flex-start !important;
+        margin-bottom: 32px !important;
+    }
+
+    .footer-links {
+        flex-wrap: wrap !important;
+        gap: 16px 24px !important;
+    }
+
+    .footer-links a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-massive-logo {
+        font-size: 48px;
+        padding: 24px 0;
+    }
+
+    .footer-bottom {
+        flex-direction: column !important;
+        gap: 16px !important;
+        text-align: center;
+    }
+
+    .footer-legal {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 12px 20px !important;
+    }
+
+    .footer-legal a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* --- LAYOUT UTILITIES --- */
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .section-padding {
+        padding: 40px 20px;
+    }
+}

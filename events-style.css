@@ -1,0 +1,414 @@
+/* ===================================================
+   EVENTS PAGE — THE FISHGATE NIGERIA
+   Extends style.css with events-page-specific styles
+   =================================================== */
+
+/* --- EVENTS HERO --- */
+.events-hero {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--color-bg);
+}
+
+.events-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 55% at center,
+            #010b19 35%,
+            rgba(1, 11, 25, 0.9) 55%,
+            rgba(1, 11, 25, 0.3) 80%,
+            rgba(1, 11, 25, 0) 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.events-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 760px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 0 24px;
+}
+
+.events-hero-tag {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent-red);
+    display: inline-block;
+    padding: 8px 24px;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    border-radius: 50px;
+}
+
+.events-hero-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 1.15;
+    color: var(--color-white);
+}
+
+.events-hero-desc {
+    font-family: var(--font-body);
+    font-size: 22px;
+    line-height: 1.6;
+    color: var(--color-white);
+    opacity: 0.85;
+    max-width: 640px;
+}
+
+/* Floating polaroids on events hero */
+.events-float {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.ef-1 {
+    top: 20%;
+    left: 10%;
+    transform: rotate(-10deg);
+}
+
+.ef-2 {
+    bottom: 15%;
+    right: 12%;
+    transform: rotate(8deg);
+}
+
+.ef-1 .polaroid {
+    width: 220px;
+}
+
+.ef-2 .polaroid {
+    width: 240px;
+}
+
+
+/* --- UPCOMING EVENTS --- */
+.events-upcoming {
+    background: var(--color-bg);
+}
+
+.upcoming-header {
+    margin-bottom: 64px;
+}
+
+.upcoming-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.upcoming-desc {
+    font-size: 20px;
+    opacity: 0.85;
+    max-width: 640px;
+}
+
+.events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.event-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s var(--transition-mechanical);
+}
+
+.event-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 0, 0, 0.2);
+    transform: translateX(8px);
+}
+
+.event-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding-right: 48px;
+}
+
+.date-month {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--color-accent-red);
+    text-transform: uppercase;
+}
+
+.date-day {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    line-height: 1;
+    margin: 4px 0;
+    color: var(--color-white);
+}
+
+.date-year {
+    font-family: var(--font-body);
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+.event-details {
+    flex: 1;
+}
+
+.event-type {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 16px;
+}
+
+.event-name {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.event-meta {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.event-meta svg {
+    opacity: 0.5;
+}
+
+.meta-divider {
+    margin: 0 8px;
+    opacity: 0.3;
+}
+
+.event-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+.event-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-btn {
+    min-width: 160px;
+    text-align: center;
+}
+
+.event-btn--outline {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.event-btn--outline:hover {
+    background: white;
+    color: var(--color-bg);
+}
+
+
+/* --- GALLERY --- */
+.events-gallery {
+    background: var(--color-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.gallery-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.gallery-desc {
+    font-size: 20px;
+    opacity: 0.85;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.gallery-item {
+    width: 100%;
+    transition: transform 0.4s var(--transition-mechanical);
+}
+
+.gallery-item:hover {
+    transform: scale(1.02) rotate(-2deg) !important;
+}
+
+
+/* --- RESPONSIVE: 1024px --- */
+@media (max-width: 1024px) {
+    .events-hero-title {
+        font-size: 48px;
+    }
+
+    .event-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        padding: 32px;
+    }
+
+    .event-card:hover {
+        transform: translateY(-8px);
+    }
+
+    .event-date {
+        flex-direction: row;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-right: 0;
+        padding-bottom: 24px;
+        gap: 16px;
+        align-items: baseline;
+    }
+
+    .date-month,
+    .date-year {
+        font-size: 18px;
+    }
+
+    .event-action {
+        width: 100%;
+    }
+
+    .event-btn {
+        width: 100%;
+    }
+
+    .gallery-grid {
+        gap: 24px;
+    }
+}
+
+/* --- RESPONSIVE: 768px MOBILE --- */
+@media (max-width: 768px) {
+
+    /* Hero */
+    .events-hero {
+        min-height: 85vh;
+    }
+
+    .events-hero-content {
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .events-hero-tag {
+        font-size: 11px;
+        padding: 8px 16px;
+    }
+
+    .events-hero-title {
+        font-size: 36px;
+    }
+
+    .events-hero-desc {
+        font-size: 17px;
+    }
+
+    .events-float {
+        display: none;
+    }
+
+    /* Upcoming Events */
+    .events-upcoming .section-padding {
+        padding: 40px 20px;
+    }
+
+    .upcoming-title {
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+
+    .upcoming-desc {
+        font-size: 17px;
+    }
+
+    .event-card {
+        padding: 24px;
+        gap: 24px;
+    }
+
+    .event-date {
+        padding-bottom: 20px;
+    }
+
+    .event-name {
+        font-size: 26px;
+    }
+
+    .event-meta {
+        font-size: 14px;
+    }
+
+    /* Gallery */
+    .events-gallery .section-padding {
+        padding: 40px 20px;
+    }
+
+    .gallery-header {
+        margin-bottom: 32px;
+    }
+
+    .gallery-title {
+        font-size: 32px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .gallery-item[style*="transform"] {
+        transform: translateY(0) !important;
+    }
+}

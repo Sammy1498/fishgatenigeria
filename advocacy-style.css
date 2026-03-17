@@ -1,0 +1,392 @@
+/* ===================================================
+   ADVOCACY PAGE — THE FISHGATE NIGERIA
+   Extends style.css with advocacy-page-specific styles
+   =================================================== */
+
+/* --- ADVOCACY HERO --- */
+.advocacy-hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--color-bg);
+}
+
+.advocacy-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 55% at center,
+            #010b19 35%,
+            rgba(1, 11, 25, 0.9) 55%,
+            rgba(1, 11, 25, 0.3) 80%,
+            rgba(1, 11, 25, 0) 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.advocacy-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 760px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 0 24px;
+}
+
+.advocacy-hero-tag {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent-blue);
+    display: inline-block;
+    padding: 8px 24px;
+    border: 1px solid rgba(26, 74, 216, 0.4);
+    border-radius: 50px;
+}
+
+.advocacy-hero-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 1.15;
+    color: var(--color-white);
+}
+
+.advocacy-hero-desc {
+    font-family: var(--font-body);
+    font-size: 22px;
+    line-height: 1.6;
+    color: var(--color-white);
+    opacity: 0.85;
+    max-width: 640px;
+}
+
+/* Floating polaroids on advocacy hero */
+.advocacy-float {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.af-1 {
+    top: 15%;
+    left: 8%;
+    transform: rotate(-8deg);
+}
+
+.af-2 {
+    top: 25%;
+    right: 10%;
+    transform: rotate(12deg);
+}
+
+.af-3 {
+    bottom: 15%;
+    left: 15%;
+    transform: rotate(5deg);
+}
+
+.af-1 .polaroid {
+    width: 220px;
+}
+
+.af-2 .polaroid {
+    width: 180px;
+}
+
+.af-3 .polaroid {
+    width: 200px;
+}
+
+
+/* --- IMPACT STATS --- */
+.advocacy-stats {
+    background: var(--color-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    text-align: center;
+}
+
+.stat-card {
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.4s var(--transition-mechanical);
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: 72px;
+    color: var(--color-white);
+    margin-bottom: 12px;
+    line-height: 1;
+}
+
+.stat-number span {
+    color: var(--color-accent-blue);
+}
+
+.stat-label {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
+/* --- INITIATIVES --- */
+.advocacy-initiatives {
+    background: var(--color-bg);
+}
+
+.initiatives-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 64px;
+}
+
+.initiatives-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.initiatives-desc {
+    font-size: 20px;
+    opacity: 0.85;
+}
+
+.initiatives-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.initiative-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.initiative-content {
+    flex: 1;
+    padding: 48px 40px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 480px;
+    transition: transform 0.4s var(--transition-mechanical);
+}
+
+.initiative-card:hover .initiative-content {
+    transform: translateY(-12px);
+}
+
+.initiative-name {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.initiative-text {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+
+/* --- PARTNERSHIPS --- */
+.advocacy-partners {
+    background: var(--color-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.partners-title {
+    font-size: 48px;
+    margin-bottom: 24px;
+}
+
+.partners-desc {
+    font-size: 20px;
+    opacity: 0.85;
+    margin-bottom: 32px;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.partner-logo {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.3);
+    font-family: var(--font-ui);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.partner-logo:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* --- RESPONSIVE: 1024px --- */
+@media (max-width: 1024px) {
+    .advocacy-hero-title {
+        font-size: 48px;
+    }
+
+    .stats-grid {
+        gap: 24px;
+    }
+
+    .stat-number {
+        font-size: 56px;
+    }
+
+    .initiatives-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .initiative-content {
+        min-height: 320px;
+    }
+
+    .partners-grid {
+        gap: 16px;
+    }
+}
+
+/* --- RESPONSIVE: 768px MOBILE --- */
+@media (max-width: 768px) {
+
+    /* Hero */
+    .advocacy-hero {
+        min-height: 85vh;
+    }
+
+    .advocacy-hero-content {
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .advocacy-hero-tag {
+        font-size: 11px;
+        padding: 8px 16px;
+    }
+
+    .advocacy-hero-title {
+        font-size: 36px;
+    }
+
+    .advocacy-hero-desc {
+        font-size: 17px;
+    }
+
+    .advocacy-float {
+        display: none;
+    }
+
+    /* Stats */
+    .advocacy-stats .section-padding {
+        padding: 40px 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .stat-card {
+        padding: 32px 24px;
+    }
+
+    .stat-number {
+        font-size: 48px;
+    }
+
+    /* Initiatives */
+    .advocacy-initiatives .section-padding {
+        padding: 40px 20px;
+    }
+
+    .initiatives-header {
+        margin-bottom: 32px;
+    }
+
+    .initiatives-title {
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+
+    .initiatives-desc {
+        font-size: 17px;
+    }
+
+    .initiative-content {
+        padding: 32px 24px;
+        min-height: 280px;
+    }
+
+    .initiative-name {
+        font-size: 26px;
+    }
+
+    .initiative-text {
+        font-size: 16px;
+    }
+
+    /* Partners */
+    .advocacy-partners .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .advocacy-partners .section-padding {
+        padding: 40px 20px;
+    }
+
+    .partners-title {
+        font-size: 32px;
+    }
+
+    .partners-desc {
+        font-size: 17px;
+    }
+
+    .partner-logo {
+        height: 120px;
+    }
+}
